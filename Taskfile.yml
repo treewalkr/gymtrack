@@ -1,0 +1,41 @@
+version: '3'
+
+tasks:
+  install:
+    cmds:
+      - go install github.com/mitranim/gow@latest
+      - go get -d ./...
+    silent: true
+
+  migrate:
+    cmds:
+      - go run . migrate
+    silent: true
+
+  migrate.staging:
+    cmds:
+      - ENV=staging go run . migrate
+    silent: true
+
+  migrate.production:
+    cmds:
+      - ENV=production go run . migrate
+    silent: true
+
+  seed:
+    cmds:
+      - go run . seed
+    silent: true
+
+  dev:
+    cmds:
+      - gow -c run . serve
+    silent: true
+
+  wire:
+  # cd ./cmd then
+  # run wire
+    cmds:
+      - wire ./cmd/wire.go
+    silent: true
+

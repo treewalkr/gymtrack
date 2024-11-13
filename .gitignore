@@ -1,0 +1,7 @@
+vendor/
+.env*
+!.env.example
+!.env.development
+build/
+*.log
+/bin/golangci-lint
